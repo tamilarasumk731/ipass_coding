@@ -1,0 +1,21 @@
+<div class="container py-5">
+  <h1>Welcome 👋</h1>
+  <h3>Cities</h3>
+  <p>Here are the list of cities which you have visited!</p>
+  <% if @cities.empty? %>
+  	<p>No Cities Found</p>
+  <% else %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+    	<% @cities.each do |city| %>
+	      <div class="col mb-4">
+			<div class="card" style="width: 18rem; margin: 5px">
+			  <%= image_tag(city.url, class: "card-img-top", alt: "No Image") %>
+			  <div class="card-footer">
+			    <h4 class="card-text"><%= city.name %> </h4>
+			  </div>
+			</div>
+		  </div>
+		<% end %>
+	</div>
+  <% end %>
+</div>
