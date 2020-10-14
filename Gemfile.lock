@@ -270,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  cable_ready (~> 4.3)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rails_admin (~> 2.0)
+  redis (~> 4.2)
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)

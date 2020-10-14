@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CityReflex < ApplicationReflex
+class ExampleReflex < ApplicationReflex
   # Add Reflex methods in this file.
   #
   # All Reflex instances expose the following properties:
@@ -21,7 +21,5 @@ class CityReflex < ApplicationReflex
   #   end
   #
   # Learn more at: https://docs.stimulusreflex.com
-  def getCity
-  end
 
 end
