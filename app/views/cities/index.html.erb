@@ -2,20 +2,47 @@
   <h1>Welcome 👋</h1>
   <h3>Cities</h3>
   <p>Here are the list of cities which you have visited!</p>
-  <% if @cities.empty? %>
-  	<p>No Cities Found</p>
-  <% else %>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
-    	<% @cities.each do |city| %>
-	      <div class="col mb-4">
-			<div class="card" style="width: 18rem; margin: 5px">
-			  <%= image_tag(city.url, class: "card-img-top", alt: "No Image") %>
-			  <div class="card-footer">
-			    <h4 class="card-text"><%= city.name %> </h4>
-			  </div>
-			</div>
-		  </div>
-		<% end %>
-	</div>
-  <% end %>
+  <div class="row" style="width: 98%;">
+	  <div class="btn-group col-md-2 mx-auto" >
+		<button id="dropdown-btn" style="width: 15rem;" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      --select a country--
+	    </button>
+		<div class="dropdown-menu justify-content-center" data-controller="city">
+			<% if @country_list.empty? %>
+			  <a class="dropdown-item">No country</a>
+			<% else %>
+			  <% @country_list.each do |country, idx| %>
+			    <a class="dropdown-item" data-target="city.Country"  data-action='click->city#getCity' data-slide-index='<%= idx %>' data-info='<%= country %>' data-id='<%= country %>' ><%= country %></a>
+			  <% end %>
+			<% end %>
+		</div>
+	  </div>
+  </div>
+  <div id="city-div">
+	  <% if @countries.empty? %>
+	  	<p>No Cities Found</p>
+	  <% else %>
+	    	<% @countries.each do |country| %>
+	    		<div class='progress' style='width: 95%; height: 35px; margin-top: 10px; margin-bottom: 10px;'>
+				  <div class='progress-bar bg-secondary' role='progressbar' style='width: 100%' aria-valuenow='100' aria-valuemin='0' aria-valuemax='98'><h5><%= country.name %></h5></div>
+				</div>
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+				<% if country.cities.empty? %>
+	  				<p>No Cities Found</p>
+	  			<% else %>
+			      <% country.cities.each do |city| %>
+				      <div class="col mb-4">
+						<div class="card" style="width: 18rem; margin: 5px">
+						  <%= image_tag(city.url, class: "card-img-top", alt: "No Image") %>
+						  <div class="card-footer">
+						    <h4 class="card-text"><%= city.name %> </h4>
+						  </div>
+						</div>
+					  </div>
+				  <% end %>
+				<% end %>
+				</div>
+			<% end %>
+	  <% end %>
+  </div>
 </div>
