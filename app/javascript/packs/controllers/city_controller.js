@@ -8,7 +8,7 @@ export default class extends Controller{
 
 	getData(country){
 		var this1 = this
-		var url = "http://localhost:3000/cities"
+		var url = "/cities"
 		if(country == "All"){
 
 			var xmlhttp = new XMLHttpRequest();
